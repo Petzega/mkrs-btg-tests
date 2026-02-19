@@ -1,0 +1,62 @@
+plugins {
+    id 'java'
+    id 'net.serenity-bdd.serenity-gradle-plugin' version '4.0.46'
+}
+
+group = 'org.btg.practual'
+version = '1.0.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    serenityVersion = '4.0.46'
+    junitVersion = '5.10.1'
+}
+
+dependencies {
+    // 1. Serenity BDD Core & Cucumber
+    testImplementation "net.serenity-bdd:serenity-core:${serenityVersion}"
+    testImplementation "net.serenity-bdd:serenity-cucumber:${serenityVersion}"
+
+    // 2. Patrón Screenplay (Core y Webdriver para UI)
+    testImplementation "net.serenity-bdd:serenity-screenplay:${serenityVersion}"
+    testImplementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}"
+
+    // 3. Motor de Pruebas: JUnit 5 (Jupiter)
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+    testImplementation "org.junit.platform:junit-platform-suite:1.10.1"
+
+    // 4. AssertJ para validaciones
+    testImplementation "org.assertj:assertj-core:3.24.2"
+
+    // 5. Logging (Evita advertencias en consola durante la ejecución)
+    testImplementation "ch.qos.logback:logback-classic:1.4.14"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = true
+    }
+
+    systemProperties System.getProperties()
+}
+
+gradle.startParameter.continueOnFailure = true
+
+test.finalizedBy(aggregate)
