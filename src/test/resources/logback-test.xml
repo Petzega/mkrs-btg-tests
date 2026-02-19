@@ -1,0 +1,17 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="WARN">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+    <!-- Reduce noise from Serenity, Cucumber, and Netty -->
+    <logger name="net.thucydides" level="WARN"/>
+    <logger name="net.serenitybdd" level="WARN"/>
+    <logger name="io.cucumber" level="WARN"/>
+    <logger name="org.apache.http" level="WARN"/>
+</configuration>

@@ -23,12 +23,12 @@ ext {
 
 dependencies {
     // 1. Serenity BDD Core & Cucumber
-    testImplementation "net.serenity-bdd:serenity-core:${serenityVersion}"
-    testImplementation "net.serenity-bdd:serenity-cucumber:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-core:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-cucumber:${serenityVersion}"
 
     // 2. Patrón Screenplay (Core y Webdriver para UI)
-    testImplementation "net.serenity-bdd:serenity-screenplay:${serenityVersion}"
-    testImplementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-screenplay:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}"
 
     // 3. Motor de Pruebas: JUnit 5 (Jupiter)
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
@@ -38,8 +38,14 @@ dependencies {
     // 4. AssertJ para validaciones
     testImplementation "org.assertj:assertj-core:3.24.2"
 
-    // 5. Logging (Evita advertencias en consola durante la ejecución)
+    // 5. Logging
     testImplementation "ch.qos.logback:logback-classic:1.4.14"
+
+    // 6. Cucumber JUnit Platform Engine (Required for @IncludeEngines("cucumber"))
+    testImplementation "io.cucumber:cucumber-junit-platform-engine:7.14.0"
+
+    // 7. JUnit 4 (Required by Serenity Reporter)
+    testImplementation "junit:junit:4.13.2"
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -55,8 +61,17 @@ test {
     }
 
     systemProperties System.getProperties()
+    systemProperty "serenity.test.root", "org.btg.practual"
+    systemProperty "serenity.project.name", "Makers BTG Tests"
 }
 
 gradle.startParameter.continueOnFailure = true
+
+
+serenity {
+    testRoot = "org.btg.practual"
+    requirementsBaseDir = "src/test/resources/features"
+    reports = ["html"]
+}
 
 test.finalizedBy(aggregate)
