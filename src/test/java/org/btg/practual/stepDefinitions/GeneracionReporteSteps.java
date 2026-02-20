@@ -1,28 +1,52 @@
 package org.btg.practual.stepDefinitions;
 
+import io.cucumber.java.Before;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
+import net.serenitybdd.screenplay.actions.Open;
+import net.serenitybdd.screenplay.actors.OnStage;
+import net.serenitybdd.screenplay.actors.OnlineCast;
+
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static org.hamcrest.Matchers.equalTo;
+
+import org.btg.practual.screenplay.questions.AfterLogin;
+import org.btg.practual.screenplay.tasks.GenerateReport;
+import org.btg.practual.screenplay.tasks.Login;
+import org.btg.practual.screenplay.ui.ReportGeneratorPage;
+import org.btg.practual.ui.ChronosPage;
 
 public class GeneracionReporteSteps {
 
-    @Dado("el usuario ingresa a la web de Chronos")
-    public void el_usuario_ingresa_a_la_web_de_chronos() {
-        // Write code here that turns the phrase above into concrete actions
-        System.out.println("Step: el usuario ingresa a la web de Chronos");
+    @Before
+    public void setTheStage() {
+        OnStage.setTheStage(new OnlineCast());
+    }
+
+    private ChronosPage chronosPage;
+
+    @Dado("el usuario {word} ingresa a la web de Chronos")
+    public void loginIntoWeb(String actor) {
+        theActorCalled(actor).attemptsTo(
+                Open.browserOn().the(chronosPage),
+                Login.withCredentials("Peter", "Zegarra")
+        );
     }
 
     @Cuando("ingrese los datos del reporte {string} para la compañia {string} segun la fecha {string}")
-    public void ingrese_los_datos_del_reporte_para_la_compañia_segun_la_fecha(String reporte, String compania,
-            String fecha) {
-        // Write code here that turns the phrase above into concrete actions
-        System.out.println("Step: ingrese los datos del reporte " + reporte + " para la compañia " + compania
-                + " segun la fecha " + fecha);
+    public void setReportData(String report, String company, String reportDate) {
+        theActorInTheSpotlight().attemptsTo(
+                GenerateReport.witData(report, company, reportDate)
+        );
     }
 
     @Entonces("se genera el reporte {string} de manera exitosa")
-    public void se_genera_el_reporte_de_manera_exitosa(String reporte) {
-        // Write code here that turns the phrase above into concrete actions
-        System.out.println("Step: se genera el reporte " + reporte + " de manera exitosa");
+    public void validateReporte(String reporte) {
+        theActorInTheSpotlight().should(
+                seeThat("el mensaje de bienvenida", AfterLogin.value(), equalTo("Peter Zegarra"))
+        );
     }
 }
