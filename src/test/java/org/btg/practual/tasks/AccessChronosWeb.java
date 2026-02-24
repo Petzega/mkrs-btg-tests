@@ -6,16 +6,16 @@ import net.serenitybdd.screenplay.actions.Open;
 
 public class AccessChronosWeb implements Task {
 
-    private static final String CHRONOS_URL = "https://chronos.example.com";
-
     @Override
     public <T extends Actor> void performAs(T actor) {
+        String baseUrl = System.getProperty("webdriver.base.url", "https://chronos.example.com");
         actor.attemptsTo(
-            Open.url(CHRONOS_URL)
+            Open.url(baseUrl)
         );
     }
 
     public static AccessChronosWeb theChronosWeb() {
         return new AccessChronosWeb();
     }
+}
 }
