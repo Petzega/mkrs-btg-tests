@@ -1,0 +1,115 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources UP-TO-DATE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+CucumberRunner > Cucumber > Generación de reportes desde la web de Chronos > [Happy Path] Generacion exitosa de reporte > Ejemplos > org.btg.practual.runners.CucumberRunner.Example #1.1 STANDARD_OUT
+
+    @test
+    Esquema del escenario: [Happy Path] Generacion exitosa de reporte                                      [90m# features/GeneracionReporte.feature:11[0m
+
+CucumberRunner > Cucumber > Generación de reportes desde la web de Chronos > [Happy Path] Generacion exitosa de reporte > Ejemplos > org.btg.practual.runners.CucumberRunner.Example #1.1 STANDARD_ERROR
+    feb 25, 2026 4:51:29 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+    ADVERTENCIA: Unable to find CDP implementation matching 145
+    feb 25, 2026 4:51:29 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+    ADVERTENCIA: Unable to find version of CDP to use for 145.0.7632.110. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.16.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+
+CucumberRunner > Cucumber > Generación de reportes desde la web de Chronos > [Happy Path] Generacion exitosa de reporte > Ejemplos > org.btg.practual.runners.CucumberRunner.Example #1.1 STANDARD_OUT
+      [31mDado [0m[31mel usuario [0m[31m[1mPetzega[0m[31m ingresa a la web de Chronos[0m                                                  [90m# org.btg.practual.stepDefinitions.GeneracionReporteSteps.loginIntoWeb(java.lang.String)[0m
+          [31mnet.serenitybdd.model.exceptions.SerenityManagedException: The following error occurred: unknown error: net::ERR_NAME_NOT_RESOLVED
+      (Session info: chrome=145.0.7632.110)
+    Build info: version: '4.16.1', revision: '9b4c83354e'
+    System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.1', java.version: '21.0.8'
+    Driver info: org.openqa.selenium.chrome.ChromeDriver
+    Command: [40733244bd04946a1b5fd2eda87df771, get {url=https://chronos.example.com}]
+    Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 145.0.7632.110, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: /var/folders/qg/xn_7rh0d397...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60929}, goog:processID: 9431, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:60929/devtoo..., se:cdpVersion: 145.0.7632.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+    Session ID: 40733244bd04946a1b5fd2eda87df771
+    	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+    	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+    	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+    	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+    	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+    	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+    	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+    	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+    	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+    	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
+    	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:305)
+    	at net.thucydides.core.webdriver.WebDriverFacade.get(WebDriverFacade.java:209)
+    	at net.serenitybdd.core.pages.PageObject.openPageAtUrl(PageObject.java:982)
+    	at net.serenitybdd.core.pages.PageObject.openUrl(PageObject.java:928)
+    	at net.serenitybdd.screenplay.actions.OpenUrl.performAs(OpenUrl.java:18)
+    	at net.serenitybdd.screenplay.actions.OpenUrl$ByteBuddy$PW6CitDB.performAs$accessor$VGldOwOv(Unknown Source)
+    	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+    	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:523)
+    	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:503)
+    	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:475)
+    	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:217)
+    	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:204)
+    	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:92)
+    	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+    	at net.serenitybdd.screenplay.actions.OpenUrl$ByteBuddy$PW6CitDB.performAs(Unknown Source)
+    	at net.serenitybdd.screenplay.Actor.performTask(Actor.java:299)
+    	at net.serenitybdd.screenplay.Actor.perform(Actor.java:274)
+    	at net.serenitybdd.screenplay.Actor.attemptsTo(Actor.java:215)
+    	at net.serenitybdd.screenplay.Actor.attemptsTo(Actor.java:222)
+    	at org.btg.practual.tasks.AccessChronosWeb.performAs(AccessChronosWeb.java:12)
+    	at org.btg.practual.tasks.AccessChronosWeb$ByteBuddy$Yf2MSjyi.performAs$accessor$jCxCQwkv(Unknown Source)
+    	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+    	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:523)
+    	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:503)
+    	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:475)
+    	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:217)
+    	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:204)
+    	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:92)
+    	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+    	at org.btg.practual.tasks.AccessChronosWeb$ByteBuddy$Yf2MSjyi.performAs(Unknown Source)
+    	at net.serenitybdd.screenplay.Actor.performTask(Actor.java:299)
+    	at net.serenitybdd.screenplay.Actor.perform(Actor.java:274)
+    	at net.serenitybdd.screenplay.Actor.attemptsTo(Actor.java:215)
+    	at net.serenitybdd.screenplay.Actor.attemptsTo(Actor.java:222)
+    	at org.btg.practual.stepDefinitions.GeneracionReporteSteps.loginIntoWeb(GeneracionReporteSteps.java:29)
+    	at ✽.el usuario Petzega ingresa a la web de Chronos(classpath:features/GeneracionReporte.feature:6)
+    [0m
+      [36mCuando [0m[36mingrese los datos del reporte [0m[36m[1m"417"[0m[36m para la compañia [0m[36m[1m"compañia 1"[0m[36m segun la fecha [0m[36m[1m"2026-02-01"[0m [90m# org.btg.practual.stepDefinitions.GeneracionReporteSteps.setReportData(java.lang.String,java.lang.String,java.lang.String)[0m
+      [36mEntonces [0m[36mse genera el reporte [0m[36m[1m"417"[0m[36m de manera exitosa[0m                                                [90m# org.btg.practual.stepDefinitions.GeneracionReporteSteps.validateReporte(java.lang.String)[0m
+
+CucumberRunner > Cucumber > Generación de reportes desde la web de Chronos > [Happy Path] Generacion exitosa de reporte > Ejemplos > org.btg.practual.runners.CucumberRunner.Example #1.1 FAILED
+    net.serenitybdd.model.exceptions.SerenityManagedException at DirectConstructorHandleAccessor.java:62
+
+1 test completed, 1 failed
+
+> Task :test FAILED
+
+> Task :aggregate
+Generating Serenity Reports
+  - Test Root: org.btg.practual
+  - Main report: file:///Users/luispersonal/mkrs-btg-tests/target/site/serenity/index.html
+      - Test Root: org.btg.practual
+      - Requirements base directory: src/test/resources/features
+
+[Incubating] Problems report is available at: file:///Users/luispersonal/mkrs-btg-tests/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':test'.
+> There were failing tests. See the report at: file:///Users/luispersonal/mkrs-btg-tests/build/reports/tests/test/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+5 actionable tasks: 2 executed, 3 up-to-dateBUILD FAILED in 6s
+
