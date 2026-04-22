@@ -36,6 +36,7 @@ public class Login implements Task {
                 Enter.theValue(username).into(LoginPage.INPUT_USERNAME),
                 WaitUntil.the(LoginPage.BUTTON_NEXT, isClickable ()).forNoMoreThan(30).seconds(),
                 Click.on(LoginPage.BUTTON_NEXT),
+                WaitUntil.the(LoginPage.INPUT_PASSWORD, isVisible ()).forNoMoreThan(30).seconds(),
                 Enter.theValue(password).into(LoginPage.INPUT_PASSWORD),
                 WaitUntil.the(LoginPage.BUTTON_NEXT, isClickable ()).forNoMoreThan(30).seconds(),
                 Click.on(LoginPage.BUTTON_NEXT)
