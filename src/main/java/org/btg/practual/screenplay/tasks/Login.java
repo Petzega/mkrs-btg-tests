@@ -28,10 +28,10 @@ public class Login implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 WaitUntil.the(LoginPage.BUTTON_INGRESAR, isClickable ()).forNoMoreThan(30).seconds(),
-                Click.on(LoginPage.BUTTON_INGRESAR),
-                Enter.theValue(username).into(LoginPage.INPUT_USERNAME),
-                Enter.theValue(password).into(LoginPage.INPUT_PASSWORD),
-                Click.on(LoginPage.BUTTON_LOGIN)
+                Click.on(LoginPage.BUTTON_INGRESAR)
+//                Enter.theValue(username).into(LoginPage.INPUT_USERNAME),
+//                Enter.theValue(password).into(LoginPage.INPUT_PASSWORD),
+//                Click.on(LoginPage.BUTTON_LOGIN)
         );
     }
 }
