@@ -19,32 +19,39 @@ repositories {
 ext {
     serenityVersion = '4.0.46'
     junitVersion = '5.10.1'
+    lombokVersion = '1.18.36'  // ← Compatible con Java 21 sin romper Serenity
 }
 
 dependencies {
+    // Lombok — compileOnly + annotationProcessor en ambos sourceSets
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
     // 1. Serenity BDD Core & Cucumber
     implementation "net.serenity-bdd:serenity-core:${serenityVersion}"
     implementation "net.serenity-bdd:serenity-cucumber:${serenityVersion}"
 
-    // 2. Patrón Screenplay (Core y Webdriver para UI)
+    // 2. Patrón Screenplay
     implementation "net.serenity-bdd:serenity-screenplay:${serenityVersion}"
     implementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}"
 
-    // 3. Motor de Pruebas: JUnit 5 (Jupiter)
+    // 3. JUnit 5 (Jupiter)
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
     testImplementation "org.junit.platform:junit-platform-suite:1.10.1"
 
-    // 4. AssertJ para validaciones
+    // 4. AssertJ
     testImplementation "org.assertj:assertj-core:3.24.2"
 
     // 5. Logging
     testImplementation "ch.qos.logback:logback-classic:1.4.14"
 
-    // 6. Cucumber JUnit Platform Engine (Required for @IncludeEngines("cucumber"))
+    // 6. Cucumber JUnit Platform Engine
     testImplementation "io.cucumber:cucumber-junit-platform-engine:7.14.0"
 
-    // 7. JUnit 4 (Required by Serenity Reporter)
+    // 7. JUnit 4 (requerido por Serenity Reporter)
     testImplementation "junit:junit:4.13.2"
 }
 
@@ -66,7 +73,6 @@ test {
 }
 
 gradle.startParameter.continueOnFailure = true
-
 
 serenity {
     testRoot = "org.btg.practual"
