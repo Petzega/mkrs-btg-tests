@@ -32,7 +32,7 @@ public class GeneracionReporteSteps {
     public void loginIntoWeb(String actor) {
         theActorCalled(actor).attemptsTo(
                 Open.browserOn().the(chronosPage),
-                Login.withCredentials("Peter", "Zegarra")
+                Login.withCredentials("Brayan.Sanchez@btgpactual.com", "NegBra7362#*")
         );
     }
 
