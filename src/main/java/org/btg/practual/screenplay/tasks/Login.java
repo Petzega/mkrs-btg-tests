@@ -41,7 +41,7 @@ public class Login implements Task {
                 Click.on(LoginPage.BUTTON_NEXT)
 //                Click.on(LoginPage.BUTTON_LOGIN)
         );
-        Thread.sleep(10000);
+        //Thread.sleep(10000);
         actor.attemptsTo(
 
         );
