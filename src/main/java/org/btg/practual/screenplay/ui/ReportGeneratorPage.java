@@ -16,6 +16,6 @@ public class ReportGeneratorPage {
     public static final Target BUTTON_DATE = Target.the("día {0} del calendario").locatedBy("//button[@role='gridcell' and text()='{0}']");
 
 
-    public static final Target HARD_BUTTON = Target.the("día {0} del calendario").locatedBy("<input aria-invalid=\"false\" autocomplete=\"off\" id=\"report\" required=\"\" type=\"text\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-1uvydh2\" aria-autocomplete=\"list\" aria-expanded=\"false\" autocapitalize=\"none\" spellcheck=\"false\" role=\"combobox\" value=\"BPF\">");
+    public static final Target HARD_BUTTON = Target.the("día {0} del calendario").locatedBy("//input[@id='report' and @value='BPF']");
 
 }
