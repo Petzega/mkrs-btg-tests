@@ -29,17 +29,14 @@ public class GenerateReport implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
+
         actor.attemptsTo(
-                WaitUntil.the(HARD_BUTTON, isClickable()).forNoMoreThan(30).seconds(),
-                Click.on(HARD_BUTTON)
-        );
-/*        actor.attemptsTo(
                 WaitUntil.the(COMBO_BOX_REPORT, isClickable()).forNoMoreThan(30).seconds(),
                 Click.on(COMBO_BOX_REPORT),
                 WaitUntil.the(OPTION_REPORT.of(report), isClickable()).forNoMoreThan(30).seconds(),
                 Click.on(OPTION_REPORT)
-        );
-
+       );
+/*
         actor.attemptsTo(
                 WaitUntil.the(SELECT_COMPANY, isClickable()).forNoMoreThan(30).seconds(),
                 Click.on(SELECT_COMPANY),
