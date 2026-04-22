@@ -10,6 +10,7 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.btg.practual.screenplay.ui.LoginPage;
 
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class Login implements Task {
 
@@ -29,8 +30,9 @@ public class Login implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitUntil.the(LoginPage.BUTTON_INGRESAR, isClickable ()).forNoMoreThan(30).seconds(),
+                WaitUntil.the(LoginPage.BUTTON_INGRESAR, isVisible ()).forNoMoreThan(30).seconds(),
                 Click.on(LoginPage.BUTTON_INGRESAR),
+                WaitUntil.the(LoginPage.INPUT_USERNAME, isVisible ()).forNoMoreThan(30).seconds(),
                 Enter.theValue(username).into(LoginPage.INPUT_USERNAME),
                 WaitUntil.the(LoginPage.BUTTON_NEXT, isClickable ()).forNoMoreThan(30).seconds(),
                 Click.on(LoginPage.BUTTON_NEXT),
